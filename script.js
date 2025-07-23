@@ -8,13 +8,6 @@ const users = {
   "Fernanda": { role: "admin", password: "FE0001" }
 };
 
-document.querySelectorAll('.menu-toggle').forEach(button => {
-  button.addEventListener('click', () => {
-    const item = button.parentElement;
-    item.classList.toggle('active');
-  });
-});
-
 document.getElementById("login-form").addEventListener("submit", function (e) {
   e.preventDefault();
   const username = document.getElementById("username").value.trim();
@@ -23,32 +16,25 @@ document.getElementById("login-form").addEventListener("submit", function (e) {
   if (users[username] && users[username].password === password) {
     document.getElementById("login-screen").style.display = "none";
     document.getElementById("main-screen").style.display = "block";
-    document.getElementById("user-name").textContent = username;
+    document.getElementById("user-name-header").textContent = username;
 
     const role = users[username].role;
     if (role === "admin" || role === "admin2") {
-      document.getElementById("upload-btn").style.display = "inline-block";
+      const uploadBtn = document.querySelector(".menu-item.highlighted");
+      if (uploadBtn) uploadBtn.style.display = "block";
     }
-
-    document.getElementById("upload-btn").addEventListener("click", () => {
-      document.getElementById("upload-form-container").style.display = "block";
-    });
-
   } else {
     document.getElementById("login-error").textContent = "Clave o usuario incorrecto";
   }
 });
 
-
-  const toggle = document.getElementById("menu-toggle");
-  const sidebar = document.getElementById("sidebar-menu");
-
-function toggle() {
+// Mostrar/Ocultar menú desplegable
+function toggleMenu() {
   const menu = document.getElementById("dropdown-menu");
   menu.classList.toggle("show");
 }
 
-// Ocultar al hacer clic fuera
+// Cerrar menú al hacer clic fuera
 document.addEventListener("click", function (e) {
   const menu = document.getElementById("dropdown-menu");
   const toggle = document.querySelector(".menu-toggle");
@@ -58,6 +44,7 @@ document.addEventListener("click", function (e) {
   }
 });
 
+// Buscar categorías
 function filtrarMenu() {
   const input = document.getElementById("menu-search").value.toLowerCase();
   const items = document.querySelectorAll(".menu-item");
