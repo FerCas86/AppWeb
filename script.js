@@ -39,11 +39,18 @@ document.getElementById("login-form").addEventListener("submit", function (e) {
   }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
+
   const toggle = document.getElementById("menu-toggle");
   const sidebar = document.getElementById("sidebar-menu");
 
-  toggle.addEventListener("click", function () {
-    sidebar.classList.toggle("active");
+  toggle.addEventListener("click", (e) => {
+  e.stopPropagation(); // para que no se cierre al dar click en el mismo botón
+  sidebar.classList.toggle('active');
   });
+
+  document.addEventListener('click', (e) => {
+    if (!sidebar.contains(e.target) && !toggle.contains(e.target)) {
+      sidebar.classList.remove('active');
+  }
 });
+
