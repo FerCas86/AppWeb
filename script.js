@@ -43,14 +43,27 @@ document.getElementById("login-form").addEventListener("submit", function (e) {
   const toggle = document.getElementById("menu-toggle");
   const sidebar = document.getElementById("sidebar-menu");
 
-  toggle.addEventListener("click", (e) => {
-  e.stopPropagation(); // para que no se cierre al dar click en el mismo botón
-  sidebar.classList.toggle('active');
-  });
+function toggle() {
+  const menu = document.getElementById("dropdown-menu");
+  menu.classList.toggle("show");
+}
 
-  document.addEventListener('click', (e) => {
-    if (!sidebar.contains(e.target) && !toggle.contains(e.target)) {
-      sidebar.classList.remove('active');
+// Ocultar al hacer clic fuera
+document.addEventListener("click", function (e) {
+  const menu = document.getElementById("dropdown-menu");
+  const toggle = document.querySelector(".menu-toggle");
+
+  if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+    menu.classList.remove("show");
   }
 });
 
+function filtrarMenu() {
+  const input = document.getElementById("menu-search").value.toLowerCase();
+  const items = document.querySelectorAll(".menu-item");
+
+  items.forEach(item => {
+    const texto = item.textContent.toLowerCase();
+    item.style.display = texto.includes(input) ? "block" : "none";
+  });
+}
