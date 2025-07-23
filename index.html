@@ -5,126 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Panel de Documentos</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <style>
-    body {
-      background-color: #f8f9fa;
-      padding: 2rem;
-    }
-    .card {
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .card:hover {
-      transform: scale(1.02);
-    }
-    #uploadForm {
-      display: none;
-    }
-  </style>
 </head>
 <body>
-  <div class="container">
-    <div id="loginSection" class="text-center">
-      <h2 class="mb-4">Acceso al Panel de Documentación</h2>
-      <input type="password" id="claveInput" class="form-control w-50 mx-auto mb-3" placeholder="Ingresa tu clave de acceso">
-      <button onclick="verificarClave()" class="btn btn-primary">Entrar</button>
+  <div id="login-screen">
+    <h2>Acceso al Sistema</h2>
+    <form id="login-form">
+      <input type="text" id="username" placeholder="Nombre" required />
+      <input type="password" id="password" placeholder="Clave de acceso" required />
+      <button type="submit">Ingresar</button>
+    </form>
+    <p id="login-error" class="error"></p>
+  </div>
+
+  <div id="main-screen" style="display:none;">
+    <header>
+      <h2>Bienvenido, <span id="user-name"></span></h2>
+    </header>
+    <div id="menu">
+      <h3>Categorías</h3>
+      <div class="categories">
+        <button class="category">Finanzas</button>
+        <button class="category">Contratos</button>
+        <button class="category">Reportes</button>
+        <button class="category">Recursos Humanos</button>
+      </div>
+      <button id="upload-btn" style="display:none;">Subir Documento</button>
     </div>
 
-    <div id="panelSection" style="display:none">
-      <h2 class="mb-4">Categorías disponibles</h2>
-      <div class="row" id="categoriaGrid"></div>
+    <div id="upload-form-container" style="display:none;">
+      <h3>Subir Documento</h3>
+      <form id="upload-form">
+        <label for="category-select">Categoría:</label>
+        <input list="categories" id="category-select" name="category" required>
+        <datalist id="categories">
+          <option value="Finanzas">
+          <option value="Contratos">
+          <option value="Reportes">
+          <option value="Recursos Humanos">
+        </datalist>
 
-      <div class="mt-4 text-center" id="btnSubirContainer" style="display: none;">
-        <button class="btn btn-success" onclick="mostrarFormulario()">Subir Documento</button>
-      </div>
+        <label for="file-name">Nombre del archivo:</label>
+        <input type="text" id="file-name" name="filename" required />
 
-      <div id="uploadForm" class="mt-4">
-        <h4>Subir nuevo documento</h4>
-        <form onsubmit="return subirDocumento(event)">
-          <div class="mb-3">
-            <label class="form-label">Categoría</label>
-            <input list="categorias" id="categoria" class="form-control" required>
-            <datalist id="categorias">
-              <option value="Contratos">
-              <option value="Cotizaciones">
-              <option value="Reportes">
-              <option value="Facturas">
-              <option value="Informes">
-              <option value="Actas">
-            </datalist>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Nombre del archivo</label>
-            <input type="text" id="nombreArchivo" class="form-control" required>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Selecciona documento(s)</label>
-            <input type="file" id="documentos" class="form-control" multiple required>
-          </div>
-          <button type="submit" class="btn btn-primary">Enviar</button>
-        </form>
-      </div>
+        <label for="document">Selecciona uno o varios archivos:</label>
+        <input type="file" id="document" name="document" multiple required />
+
+        <button type="submit">Cargar</button>
+      </form>
     </div>
   </div>
 
-  <script>
-    const roles = {
-      'fernanda_admin': 'admin',
-      'usuario1_editor': 'editor',
-      'usuario2_editor': 'editor',
-      'consulta1': 'consulta',
-      'consulta2': 'consulta',
-      'consulta3': 'consulta',
-      'consulta4': 'consulta'
-    };
-
-    const categorias = ["Contratos", "Cotizaciones", "Reportes", "Facturas", "Informes", "Actas"];
-
-    function verificarClave() {
-      const clave = document.getElementById('claveInput').value;
-      const rol = roles[clave];
-
-      if (!rol) {
-        alert('Clave incorrecta');
-        return;
-      }
-
-      document.getElementById('loginSection').style.display = 'none';
-      document.getElementById('panelSection').style.display = 'block';
-
-      if (rol !== 'consulta') {
-        document.getElementById('btnSubirContainer').style.display = 'block';
-      }
-
-      const grid = document.getElementById('categoriaGrid');
-      categorias.forEach(cat => {
-        const div = document.createElement('div');
-        div.className = 'col-md-4 mb-3';
-        div.innerHTML = `<div class="card p-3"><h5 class="text-center">📁 ${cat}</h5></div>`;
-        grid.appendChild(div);
-      });
-    }
-
-    function mostrarFormulario() {
-      document.getElementById('uploadForm').style.display = 'block';
-    }
-
-    function subirDocumento(event) {
-      event.preventDefault();
-      const categoria = document.getElementById('categoria').value;
-      const nombre = document.getElementById('nombreArchivo').value;
-      const archivos = document.getElementById('documentos').files;
-
-      if (!categoria || !nombre || archivos.length === 0) {
-        alert('Todos los campos son obligatorios.');
-        return false;
-      }
-
-      alert(`Documento "${nombre}" cargado exitosamente en la categoría "${categoria}".`);
-      document.getElementById('uploadForm').reset();
-      document.getElementById('uploadForm').style.display = 'none';
-      return false;
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
