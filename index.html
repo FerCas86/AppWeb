@@ -7,15 +7,17 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
-  <div id="login-screen">
-    <h2>Acceso al Sistema</h2>
+  <div id="login-screen" class="login-container">
+  <div class="login-box">
+    <h2>🎯 Panel de Acceso</h2>
     <form id="login-form">
-      <input type="text" id="username" placeholder="Nombre" required />
-      <input type="password" id="password" placeholder="Clave de acceso" required />
+      <input type="text" id="username" placeholder="👤 Nombre de usuario" required />
+      <input type="password" id="password" placeholder="🔒 Clave de acceso" required />
       <button type="submit">Ingresar</button>
     </form>
     <p id="login-error" class="error"></p>
   </div>
+</div>
 
   <div id="main-screen" style="display:none;">
     <header>
