@@ -39,6 +39,11 @@ document.getElementById("login-form").addEventListener("submit", function (e) {
   }
 });
 
-document.getElementById("menu-toggle").addEventListener("click", () => {
-  document.getElementById("sidebar-menu").classList.toggle("active");
+document.addEventListener("DOMContentLoaded", function () {
+  const toggle = document.getElementById("menu-toggle");
+  const sidebar = document.getElementById("sidebar-menu");
+
+  toggle.addEventListener("click", function () {
+    sidebar.classList.toggle("active");
+  });
 });
