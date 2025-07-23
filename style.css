@@ -8,9 +8,22 @@ body {
   align-items: center;
 }
 
-.login-logo {
-  max-width: 150px;
-  margin-bottom: 2rem;
+.login-screen {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background: url("logo.png") no-repeat center center / cover; /* Ajusta aquí tu ruta de imagen */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* Filtro oscuro */
+  z-index: 1;
 }
 
 .login-container {
@@ -21,10 +34,12 @@ body {
 }
 
 .login-box {
-  background-color: #ffffff;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 2; /* Para que esté encima del filtro */
+  background: white;
+  padding: 3rem 2.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   width: 100%;
   max-width: 400px;
   text-align: center;
