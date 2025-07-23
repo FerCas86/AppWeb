@@ -30,20 +30,19 @@
         <span id="user-name-header">Usuario</span>
       </div>
       
-     <button id="menu-toggle" class="menu-toggle">☰</button>
+     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     </header>
     
  <!-- MENÚ LATERAL -->
- <nav id="sidebar-menu" class="sidebar">
-  <ul>
-    <li><button class="category">Matrices</button></li>
-    <li><button class="category">Minutas</button></li>
-    <li><button class="category">Tomas de Nota</button></li>
-    <li><button class="category">Padrones</button></li>
-    <li><button class="category">Directorios</button></li>
-    <li><button id="upload-btn" class="highlighted-btn">📤 Subir Documento</button></li>
-  </ul>
-</nav>
+<div id="dropdown-menu" class="dropdown-menu">
+  <button class="menu-item">Matrices</button>
+  <button class="menu-item">Minutas</button>
+  <button class="menu-item">Tomas de Nota</button>
+  <button class="menu-item">Padrones</button>
+  <button class="menu-item">Directorios</button>
+  <button class="menu-item highlighted">Subir Archivo</button>
+</div>
+    
 <!-- CONTENIDO PRINCIPAL -->
   <main class="main-content">
     <!-- Aquí irán los contenidos de cada categoría -->
