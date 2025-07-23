@@ -23,31 +23,26 @@
   <div id="main-screen" style="display:none;">
     <!-- ENCABEZADO -->
     <header class="main-header">
-      <div class="logo-bubble">
-        <img src="logoOrga.png" alt="Logo" />
-      </div>
-      <div class="header-content">
-         <div class="user-name">Bienvenido, <span id="user-name">Usuario</span></div>
-      </div>
-    </header>
+  <div class="logo-container">
+    <div class="logo-circle">
+      <img src="logo.png" alt="Logo" />
+    </div>
+    <span id="user-name-header">Usuario</span>
+  </div>
+  <button id="menu-toggle" class="menu-toggle">☰</button>
+</header>
     
  <!-- MENÚ LATERAL -->
-  <nav class="sidebar">
-    <ul class="menu">
-      <li class="menu-item">Matrices</li>
-      <li class="menu-item">Minutas</li>
-      <li class="menu-item">Tomas de Nota</li>
-      <li class="menu-item">Padrones</li>
-      <li class="menu-item">Directorios</li>
-    </ul>
-
-   <!-- BOTÓN SUBIR ARCHIVO -->
-    <div class="upload-container">
-      <label for="file-upload" class="upload-button">📎 Subir Archivo</label>
-      <input type="file" id="file-upload" hidden />
-    </div>
-  </nav>
-
+ <nav id="sidebar-menu" class="sidebar">
+  <ul>
+    <li><button class="category">Matrices</button></li>
+    <li><button class="category">Minutas</button></li>
+    <li><button class="category">Tomas de Nota</button></li>
+    <li><button class="category">Padrones</button></li>
+    <li><button class="category">Directorios</button></li>
+    <li><button id="upload-btn" class="highlighted-btn">📤 Subir Documento</button></li>
+  </ul>
+</nav>
 <!-- CONTENIDO PRINCIPAL -->
   <main class="main-content">
     <!-- Aquí irán los contenidos de cada categoría -->
