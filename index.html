@@ -23,64 +23,36 @@
   <div id="main-screen" style="display:none;">
     <!-- ENCABEZADO -->
     <header class="main-header">
+      <div class="logo-bubble">
+        <img src="logoOrga.png" alt="Logo" />
+      </div>
       <div class="header-content">
          <div class="user-name">Bienvenido, <span id="user-name">Usuario</span></div>
       </div>
-      <div class="logo-bubble">
-        <img src="ruta/del/logo.png" alt="Logo" />
-      </div>
     </header>
     
-    <!-- MENÚ DESPLEGABLE -->
+ <!-- MENÚ LATERAL -->
   <nav class="sidebar">
-    <h3>Categorías</h3>
     <ul class="menu">
-      <li class="menu-item">
-        <button class="menu-toggle">Finanzas</button>
-        <ul class="submenu">
-          <li>Reportes</li>
-          <li>Presupuestos</li>
-        </ul>
-      </li>
-      <li class="menu-item">
-        <button class="menu-toggle">Contratos</button>
-        <ul class="submenu">
-          <li>Nuevos</li>
-          <li>Firmados</li>
-        </ul>
-      </li>
-      <li class="menu-item">
-        <button class="menu-toggle">Recursos Humanos</button>
-        <ul class="submenu">
-          <li>Altas</li>
-          <li>Bajas</li>
-        </ul>
-      </li>
+      <li class="menu-item">Matrices</li>
+      <li class="menu-item">Minutas</li>
+      <li class="menu-item">Tomas de Nota</li>
+      <li class="menu-item">Padrones</li>
+      <li class="menu-item">Directorios</li>
     </ul>
+
+   <!-- BOTÓN SUBIR ARCHIVO -->
+    <div class="upload-container">
+      <label for="file-upload" class="upload-button">📎 Subir Archivo</label>
+      <input type="file" id="file-upload" hidden />
+    </div>
   </nav>
 
-     <!-- SUBIR DOCUMENTO -->
-    <div id="upload-form-container" style="display:none;">
-      <h3>Subir Documento</h3>
-      <form id="upload-form">
-        <label for="category-select">Categoría:</label>
-        <input list="categories" id="category-select" name="category" required>
-        <datalist id="categories">
-          <option value="Finanzas">
-          <option value="Contratos">
-          <option value="Reportes">
-          <option value="Recursos Humanos">
-        </datalist>
-
-        <label for="file-name">Nombre del archivo:</label>
-        <input type="text" id="file-name" name="filename" required />
-
-        <label for="document">Selecciona uno o varios archivos:</label>
-        <input type="file" id="document" name="document" multiple required />
-
-        <button type="submit">Cargar</button>
-      </form>
-    </div>
+<!-- CONTENIDO PRINCIPAL -->
+  <main class="main-content">
+    <!-- Aquí irán los contenidos de cada categoría -->
+  </main>
+    
   </div>
 
   <script src="script.js"></script>
