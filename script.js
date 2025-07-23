@@ -8,6 +8,13 @@ const users = {
   "Fernanda": { role: "admin", password: "FE0001" }
 };
 
+document.querySelectorAll('.menu-toggle').forEach(button => {
+  button.addEventListener('click', () => {
+    const item = button.parentElement;
+    item.classList.toggle('active');
+  });
+});
+
 document.getElementById("login-form").addEventListener("submit", function (e) {
   e.preventDefault();
   const username = document.getElementById("username").value.trim();
