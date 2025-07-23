@@ -90,93 +90,90 @@ body {
 
 /* ENCABEZADO */
 .main-header {
+  background-color: #f1f1f1;
   position: relative;
-  background-color: #f2f2f2;
-  height: 150px;
+  padding: 1rem;
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.logo-bubble {
-  position: absolute;
-  top: 30px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100px;
-  height: 100px;
-  background-color: white;
-  border-radius: 0 0 50% 50%;
-  display: flex;
-  justify-content: center;
   align-items: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  z-index: 2;
+  justify-content: space-between;
+  z-index: 1000;
 }
 
-.logo-bubble img {
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-circle {
+  width: 80px;
+  height: 40px;
+  background-color: white;
+  border-top-left-radius: 80px;
+  border-top-right-radius: 80px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo-circle img {
   width: 60px;
   height: auto;
 }
 
-.user-name {
-  font-weight: bold;
-  font-size: 18px;
-  color: #333;
-  margin-right: 20px;
-  margin-top: 10px;
-}
-
 /* MENÚ LATERAL */
 .sidebar {
-  background-color: #e6e6e6;
-  padding: 20px;
+  position: fixed;
+  top: 0;
+  right: -250px;
+  height: 100%;
   width: 250px;
-  float: left;
-  height: calc(100vh - 120px);
-  overflow-y: auto;
+  background-color: #fff;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+  transition: right 0.3s ease;
+  padding-top: 80px;
+  z-index: 999;
 }
 
-.menu {
+.sidebar ul {
   list-style: none;
   padding: 0;
-  margin: 0 0 30px 0;
+  margin: 0;
 }
 
-.menu-item {
-  padding: 12px 10px;
-  background-color: #d4d4d4;
-  margin-bottom: 10px;
-  border-radius: 5px;
+.sidebar ul li {
+  margin: 0;
+}
+
+.sidebar button {
+  width: 100%;
+  padding: 15px;
+  text-align: left;
+  border: none;
+  background: none;
+  font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #eee;
 }
 
-.menu-item:hover {
-  background-color: #c4c4c4;
-}
-
-/* BOTÓN DE SUBIDA */
-.upload-container {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.upload-button {
-  display: inline-block;
-  background-color: #0077cc;
+.sidebar .highlighted-btn {
+  background-color: #007bff;
   color: white;
-  padding: 10px 14px;
-  font-size: 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-weight: bold;
 }
 
-.upload-button:hover {
-  background-color: #005fa3;
+.menu-toggle {
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Mostrar el menú cuando está activo */
+.sidebar.active {
+  right: 0;
 }
 
 /* CONTENIDO PRINCIPAL */
