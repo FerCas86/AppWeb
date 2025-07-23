@@ -21,20 +21,45 @@
 </div>
 
   <div id="main-screen" style="display:none;">
-    <header>
-      <h2>Bienvenido, <span id="user-name"></span></h2>
-    </header>
-    <div id="menu">
-      <h3>Categorías</h3>
-      <div class="categories">
-        <button class="category">Finanzas</button>
-        <button class="category">Contratos</button>
-        <button class="category">Reportes</button>
-        <button class="category">Recursos Humanos</button>
+    <!-- ENCABEZADO -->
+    <header class="main-header">
+      <div class="header-content">
+         <div class="user-name">Bienvenido, <span id="user-name">Usuario</span></div>
       </div>
-      <button id="upload-btn" style="display:none;">Subir Documento</button>
-    </div>
+      <div class="logo-bubble">
+        <img src="ruta/del/logo.png" alt="Logo" />
+      </div>
+    </header>
+    
+    <!-- MENÚ DESPLEGABLE -->
+  <nav class="sidebar">
+    <h3>Categorías</h3>
+    <ul class="menu">
+      <li class="menu-item">
+        <button class="menu-toggle">Finanzas</button>
+        <ul class="submenu">
+          <li>Reportes</li>
+          <li>Presupuestos</li>
+        </ul>
+      </li>
+      <li class="menu-item">
+        <button class="menu-toggle">Contratos</button>
+        <ul class="submenu">
+          <li>Nuevos</li>
+          <li>Firmados</li>
+        </ul>
+      </li>
+      <li class="menu-item">
+        <button class="menu-toggle">Recursos Humanos</button>
+        <ul class="submenu">
+          <li>Altas</li>
+          <li>Bajas</li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
 
+     <!-- SUBIR DOCUMENTO -->
     <div id="upload-form-container" style="display:none;">
       <h3>Subir Documento</h3>
       <form id="upload-form">
