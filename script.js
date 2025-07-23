@@ -38,3 +38,7 @@ document.getElementById("login-form").addEventListener("submit", function (e) {
     document.getElementById("login-error").textContent = "Clave o usuario incorrecto";
   }
 });
+
+document.getElementById("menu-toggle").addEventListener("click", () => {
+  document.getElementById("sidebar-menu").classList.toggle("active");
+});
