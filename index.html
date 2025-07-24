@@ -52,15 +52,11 @@
 
      <!-- BIENVENIDO -->
   <p id="mensaje-bienvenida" class="welcome-container"></p>
-
-  <div class="logout-container">
-    <button class="logout-button" onclick="cerrarSesion()">Cerrar sesión</button>
-  </div>
   
   <script>
     function cerrarSesion() {
       localStorage.clear();
-      window.location.href = "login.html"; // O el archivo correcto de inicio
+      location.reload(); // recarga index.html y vuelve a mostrar el login
     }
   </script>
     
