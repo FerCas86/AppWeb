@@ -93,8 +93,9 @@ body {
   background: #ccc;
   height: 100px;
   width: 100%;
-  overflow: visible;
+  overflow: hidden;
   z-index: 2;
+  position: relative;
 }
 
 /* Barra superior donde estará el logo colgando y usuario */
@@ -103,15 +104,13 @@ body {
   height: 100px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   position: relative;
-  padding: 0 20px;
-  box-sizing: border-box;
 }
 
 .logo-container {
   position: absolute;
-  top: 100%;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
   z-index: 3;
@@ -121,7 +120,7 @@ body {
 .logo-circle {
   background-color: #c60000;
   border-radius: 0 0 60px 60px; /* semicírculo hacia abajo */
-  height: 60px;
+  height: 100px;
   width: 120px;
   display: flex;
   align-items: center;
@@ -146,9 +145,11 @@ body {
 
 /* MENÚ HAMBURGUESA */
 .menu-toggle {
+  position: absolute;
+  right: 20px;
   font-size: 28px;
   cursor: pointer;
-  position: relative;
+  z-index:4;
 }
 
 /* MENÚ DESPLEGABLE SUPERIOR */
