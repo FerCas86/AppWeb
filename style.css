@@ -10,17 +10,13 @@ body {
 
 
 .login-screen {
-  height: 100vh;
-  width: 100vw;
-  position: relative;
-  background-image: url("logoOrga.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
   display: flex;
-  align-items: center;
   justify-content: center;
-  z-index:0;
+  align-items: center;
+  height: 100vh;
+  background: #f2f2f2;
+  position: relative;
+  z-index: 1;
 }
 
 .login-screen::before {
@@ -47,16 +43,13 @@ body {
 }
 
 .login-box {
-  position: relative;
-  z-index: 2; /* Para que esté encima del filtro */
-  background: rgba(255, 255, 255, 0.85);
-  padding: 3rem 3rem 3rem 3rem;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  background-color: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  text-align: center;
   width: 100%;
   max-width: 400px;
-  text-align: center;
-  backdrop-filter: blur(5px);
 }
 
 .login-box h2 {
