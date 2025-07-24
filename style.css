@@ -91,64 +91,59 @@ body {
 .main-header {
   position: relative;
   background: #ccc;
-  padding-top: 80px;
-  padding-bottom: 20px;
-  text-align: center;
-  width: 100%;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 100;
 }
 
 /* CÍRCULO ROJO COLGANDO */
 .logo-circle {
-  position: absolute;
-  top: -75px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
+  background-color: #990000;
+  border-radius: 0 0 100px 100px;
   height: 120px;
-  background: #c60000;
-  border-bottom-left-radius: 75px;
-  border-bottom-right-radius: 75px;
+  width: 120px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  z-index: 2;
-  border-radius: 0 0 50% 50%;
-  overflow: hidden;
+  justify-content: center;
+  position: relative;
 }
 
 .logo-circle img {
-  width: 80%;
+ width: 80px;
   height: auto;
-  object-fit: contain;
   margin-top: 20px;
 }
 
 /* USUARIO */
 .logo-container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: left;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 60px;
+  overflow: hidden;
 }
 
-.user-name-header{
+.user-name {
   position: absolute;
+  top: 55px;
   right: 20px;
-  top: 65px; /* Ajusta si se superpone con el header */
   font-size: 14px;
   color: #333;
-  font-weight: 500;
-  z-index: 10;
+  font-weight: 600;
 }
 
 /* MENÚ HAMBURGUESA */
 .menu-toggle {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 28px;
+ font-size: 28px;
   cursor: pointer;
-  z-index: 3;
+  position: absolute;
+  top: 10px;
+  right: 20px;
 }
 
 /* MENÚ DESPLEGABLE SUPERIOR */
