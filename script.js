@@ -9,26 +9,28 @@ const users = {
 };
 
 // Lógica de login básica (puedes ajustar según necesidad)
-document.getElementById("login-form").addEventListener("submit", function(e) {
-  e.preventDefault();
-  const username = document.getElementById("username").value;
-  const password = document.getElementById("password").value;
+document.addEventListener("DOMContentLoaded", function () {
+  const usuarioNombre = localStorage.getItem("usuarioNombre");
+  const usuarioGenero = localStorage.getItem("usuarioGenero");
 
-  const user = users[username];
+  const loginScreen = document.getElementById("login-screen");
+  const mainScreen = document.getElementById("main-screen");
 
-  if (user && user.password === password) {
-    // Guardar datos del usuario
-    localStorage.setItem("usuarioNombre", user.nombre);
-    localStorage.setItem("usuarioGenero", user.genero);
-    localStorage.setItem("usuarioRol", user.role);
-    localStorage.setItem("usuarioUsuario", username);
+  if (usuarioNombre && usuarioGenero) {
+    // Mostrar la pantalla principal
+    loginScreen.style.display = "none";
+    mainScreen.style.display = "block";
 
-    // Redirigir a la página principal
-    window.location.href = "index.html";
+    // Mostrar mensaje de bienvenida
+    const saludo = usuarioGenero === "F" ? "Bienvenida" : "Bienvenido";
+    document.getElementById("mensaje-bienvenida").textContent = `${saludo}, Ing. ${usuarioNombre}`;
   } else {
-    document.getElementById("login-error").textContent = "Nombre o clave inválidos.";
+    // Mostrar login y ocultar pantalla principal
+    loginScreen.style.display = "block";
+    mainScreen.style.display = "none";
   }
 });
+
 
 // Toggle del menú desplegable
 function toggleMenu() {
@@ -53,13 +55,3 @@ function filtrarMenu() {
     item.style.display = item.textContent.toLowerCase().includes(input) ? "block" : "none";
   });
 }
-
-// Bienvenido
-document.addEventListener("DOMContentLoaded", function () {
-  const nombre = localStorage.getItem("usuarioNombre") || "Usuario";
-  const genero = localStorage.getItem("usuarioGenero") || "M";
-
-  const saludo = genero === "F" ? "Bienvenida" : "Bienvenido";
-
-  document.getElementById("mensaje-bienvenida").textContent = `${saludo}, Ing. ${nombre}`;
-});
