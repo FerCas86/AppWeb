@@ -48,6 +48,8 @@ body {
 }
 
 .login-box {
+  position: relative; /* ✅ necesario para contexto z-index */
+  z-index: 2;          /* ✅ por encima del fondo negro */
   background-color: rgba(255, 255, 255, 0.95);
   padding: 40px 30px;
   border-radius: 15px;
