@@ -197,6 +197,19 @@ body {
   font-weight: bold;
 }
 
+/* BIENVENIDO */
+.welcome-container {
+  background-color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #ddd;
+  z-index: 9;
+  position: relative;
+}
+
 /* CONTENIDO PRINCIPAL */
 .main-content {
   padding: 30px;
