@@ -17,8 +17,13 @@ document.getElementById("login-form").addEventListener("submit", function(e) {
   if (username && password) {
     document.getElementById("login-screen").style.display = "none";
     document.getElementById("main-screen").style.display = "block";
-    document.getElementById("user-name-header").textContent = username;
-  } else {
+    document.addEventListener("DOMContentLoaded", () => {
+  const username = sessionStorage.getItem("username") || "Usuario";
+  const userSpan = document.getElementById("user-name-header");
+  if (userSpan) {
+    userSpan.textContent = username;
+  }
+});
     document.getElementById("login-error").textContent = "Nombre o clave inválidos.";
   }
 });
