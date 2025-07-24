@@ -89,10 +89,10 @@ body {
 }
 
 .main-header {
+  position: relative;
   background: #ccc;
   padding-top: 80px;
   padding-bottom: 20px;
-  position: relative;
   text-align: center;
   width: 100%;
 }
@@ -131,10 +131,14 @@ body {
   align-items: left;
 }
 
-#user-name-header {
-  margin-top: 20px;
-  font-weight: bold;
-  font-size: 18px;
+.user-name {
+  position: absolute;
+  right: 20px;
+  top: 65px; /* Ajusta si se superpone con el header */
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+  z-index: 10;
 }
 
 /* MENÚ HAMBURGUESA */
