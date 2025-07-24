@@ -34,11 +34,16 @@ body {
   z-index: 1;
 }
 
+
 .login-container {
- display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center; /* 👈 centra verticalmente */
   width: 100%;
+  height: 100vh; /* 👈 asegura que ocupe el alto completo de la pantalla */
+  position: relative;
+  z-index: 2;
 }
 
 .login-box {
