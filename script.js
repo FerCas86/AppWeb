@@ -1,38 +1,31 @@
 const users = {
-  "Carlos": { role: "admin", password: "CA1234" },
-  "Laura": { role: "admin2", password: "LA5678" },
-  "Ana": { role: "consult", password: "AN2468" },
-  "Mario": { role: "consult", password: "MA1357" },
-  "Pablo": { role: "consult", password: "PA1122" },
-  "Rosa": { role: "consult", password: "RO9988" },
-  "Fernanda": { role: "admin", password: "FE0001" }
+  "Carlos": { role: "admin", password: "CA1234", nombre: "Carlos", genero: "M" },
+  "Laura": { role: "admin2", password: "LA5678", nombre: "Laura", genero: "F" },
+  "Ana": { role: "consult", password: "AN2468", nombre: "Ana", genero: "F" },
+  "Mario": { role: "consult", password: "MA1357", nombre: "Mario", genero: "M" },
+  "Pablo": { role: "consult", password: "PA1122", nombre: "Pablo", genero: "M" },
+  "Rosa": { role: "consult", password: "RO9988", nombre: "Rosa", genero: "F" },
+  "Fernanda": { role: "admin", password: "FE0001", nombre: "Fernanda", genero: "F" }
 };
 
 // Lógica de login básica (puedes ajustar según necesidad)
 document.getElementById("login-form").addEventListener("submit", function(e) {
   e.preventDefault();
   const username = document.getElementById("username").value;
-  const genero = document.getElementById("genero").value;
   const password = document.getElementById("password").value;
 
-  if (username && password) {
-    document.getElementById("login-screen").style.display = "none";
-    document.getElementById("main-screen").style.display = "block";
-    document.addEventListener("DOMContentLoaded", () => {
-  const username = sessionStorage.getItem("username") || "Usuario";
-  const userSpan = document.getElementById("user-name-header");
-  if (userSpan) {
-    userSpan.textContent = username;
-  }
+  const user = users[username];
 
-  // Guardar los datos en localStorage
-  localStorage.setItem("usuarioNombre", nombre);
-  localStorage.setItem("usuarioGenero", genero);
+  if (user && user.password === password) {
+    // Guardar datos del usuario
+    localStorage.setItem("usuarioNombre", user.nombre);
+    localStorage.setItem("usuarioGenero", user.genero);
+    localStorage.setItem("usuarioRol", user.role);
+    localStorage.setItem("usuarioUsuario", username);
 
-  // Redirigir a la página principal
-  window.location.href = "principal.html"; // Ajusta este nombre si es necesario
-});
-    
+    // Redirigir a la página principal
+    window.location.href = "principal.html";
+  } else {
     document.getElementById("login-error").textContent = "Nombre o clave inválidos.";
   }
 });
@@ -63,10 +56,10 @@ function filtrarMenu() {
 
 // Bienvenido
 document.addEventListener("DOMContentLoaded", function () {
-    const nombre = localStorage.getItem("usuarioNombre") || "Usuario";
-    const genero = localStorage.getItem("usuarioGenero") || "M";
+  const nombre = localStorage.getItem("usuarioNombre") || "Usuario";
+  const genero = localStorage.getItem("usuarioGenero") || "M";
 
-    const saludo = genero === "F" ? "Bienvenida" : "Bienvenido";
+  const saludo = genero === "F" ? "Bienvenida" : "Bienvenido";
 
-    document.getElementById("mensaje-bienvenida").textContent = `${saludo}, Ing. ${nombre}`;
-  });
+  document.getElementById("mensaje-bienvenida").textContent = `${saludo}, Ing. ${nombre}`;
+});
