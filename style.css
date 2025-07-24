@@ -101,7 +101,7 @@ body {
 
 /* CÍRCULO ROJO COLGANDO */
 .logo-circle {
-  background-color: #990000;
+  background-color: #c60000;
   border-radius: 0 0 100px 100px;
   height: 120px;
   width: 120px;
@@ -109,6 +109,7 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
+  overflow: hidden; /* Solo aquí se mantiene oculto lo que se salga del círculo */
 }
 
 .logo-circle img {
@@ -125,7 +126,8 @@ body {
   transform: translateX(-50%);
   width: 120px;
   height: 60px;
-  overflow: hidden;
+  overflow: visible;
+  z-index: 10;
 }
 
 .user-name {
