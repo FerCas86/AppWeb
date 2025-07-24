@@ -1,11 +1,11 @@
 body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* 👈 evita scroll horizontal */
+  overflow-x: hidden;
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   height: 100vh;
-  width: 100vw a 100%;
+  width: 100vw; /* ✅ Esta línea debe ser así */
 }
 
 
@@ -208,7 +208,6 @@ body {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid #ddd;
   z-index: 9;
-  position: relative;
 }
 
 .logout-container {
