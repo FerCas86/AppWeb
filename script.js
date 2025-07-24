@@ -11,17 +11,17 @@ const users = {
 // Lógica de login básica (puedes ajustar según necesidad)
 document.addEventListener("DOMContentLoaded", function () {
   const usuarioNombre = localStorage.getItem("usuarioNombre");
-  const usuarioGenero = localStorage.getItem("usuarioGenero");
 
   const loginScreen = document.getElementById("login-screen");
   const mainScreen = document.getElementById("main-screen");
 
-  if (usuarioNombre && usuarioGenero) {
+  if (usuarioNombre) {
     // Mostrar la pantalla principal
     loginScreen.style.display = "none";
     mainScreen.style.display = "block";
 
     // Mostrar mensaje de bienvenida
+    const genero = localStorage.getItem("usuarioGenero") || "M";
     const saludo = usuarioGenero === "F" ? "Bienvenida" : "Bienvenido";
     document.getElementById("mensaje-bienvenida").textContent = `${saludo}, Ing. ${usuarioNombre}`;
   } else {
