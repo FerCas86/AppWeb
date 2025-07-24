@@ -27,23 +27,21 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // LOGIN
-  const loginForm = document.getElementById("login-form");
-  loginForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-    const errorMsg = document.getElementById("login-error");
-
-    if (users[username] && users[username].password === password) {
-      localStorage.setItem("usuarioNombre", users[username].nombre);
-      localStorage.setItem("usuarioGenero", users[username].genero);
-      errorMsg.textContent = "";
-      location.reload();
+  function login() {
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+  
+    const user = users[username];
+    if (user && user.password === password) {
+      localStorage.setItem("usuarioNombre", user.nombre);
+      localStorage.setItem("usuarioGenero", user.genero);
+  
+      document.getElementById("login-screen").style.display = "none";
+      document.getElementById("main-screen").style.display = "block";
     } else {
-      errorMsg.textContent = "Usuario o clave incorrectos.";
+      document.getElementById("login-error").style.display = "block";
     }
-  });
-});
+  }
 
 // CERRAR SESIÓN
 function cerrarSesion() {
