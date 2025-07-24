@@ -89,11 +89,12 @@ body {
 }
 
 .main-header {
+  background: #ccc;
+  padding-top: 80px;
+  padding-bottom: 20px;
   position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
+  text-align: center;
+  width: 100%;
 }
 
 /* CÍRCULO ROJO COLGANDO */
