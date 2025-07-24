@@ -14,6 +14,10 @@
       <h2>Bienvenido</h2>
       <form id="login-form">
         <input type="text" id="username" placeholder="Nombre" required />
+        <select id="genero">
+          <option value="M">Masculino</option>
+          <option value="F">Femenino</option>
+        </select>
         <input type="password" id="password" placeholder="Clave de acceso" required />
         <button type="submit">Ingresar</button>
       </form>
@@ -49,7 +53,7 @@
 
      <!-- BIENVENIDO -->
   <div class="welcome-container">
-    <p>Bienvenido, Ing. <span id="username">Usuario</span></p>
+    <p id="mensaje-bienvenida"></p>
   </div>
     
     <!-- CONTENIDO PRINCIPAL -->
