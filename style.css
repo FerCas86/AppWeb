@@ -1,242 +1,45 @@
+/* Quitar margen del body para que el fondo gris esté pegado */
 body {
   margin: 0;
-  padding: 0;
-  overflow-x: hidden; /* 👈 evita scroll horizontal */
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  height: 100vh;
-  width: 100vw a 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f4f4;
 }
 
-
-.login-screen {
-  height: 100vh;
-  width: 100vw;
-  position: relative;
-  background-image: url("logoOrga.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index:0;
+/* Asegura que el contenido comience justo debajo del encabezado */
+.main-content {
+  padding: 20px;
+  margin-top: 0;
 }
 
-.login-screen::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-   top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Filtro oscuro */
-  z-index: 1;
-}
-
-.login-container {
- display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-.login-box {
-  position: relative;
-  z-index: 2; /* Para que esté encima del filtro */
-  background: rgba(255, 255, 255, 0.85);
-  padding: 3rem 3rem 3rem 3rem;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  width: 100%;
-  max-width: 400px;
+/* El mensaje de bienvenida debe ser parte del contenido y moverse junto con él */
+.welcome-container {
+  margin: 0;
+  padding: 20px;
+  background-color: #e3e3e3;
+  font-size: 1.2rem;
+  font-weight: bold;
   text-align: center;
-  backdrop-filter: blur(5px);
+  border-bottom: 1px solid #ccc;
 }
 
-.login-box h2 {
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.login-box input {
-  width: 100%;
-  padding: 0.75rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-}
-
-.login-box button {
-  width: 100%;
-  padding: 0.75rem;
-  background-color: #2563eb;
-  color: white;
-  border: none;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.login-box button:hover {
-  background-color: #1e40af;
-}
-
-.error {
-  color: #e11d48;
-  margin-top: 0.5rem;
-}
-
-.main-header {
-  background: #ccc;
-  height: 120px;
-  width: 100%;
-  position: relative;
-  z-index: 10;
-}
-
-/* Barra superior donde estará el logo colgando y usuario */
-.top-bar {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.logo-container {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 11;
-}
-
-/* CÍRCULO ROJO COLGANDO */
-.logo-circle {
-  background-color: #c60000;
-  border-radius: 0 0 60px 60px; /* semicírculo hacia abajo */
-  height: 60px;
-  width: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden; /* Solo aquí se mantiene oculto lo que se salga del círculo */
-}
-
-.logo-circle img {
-  width: 60px;
-  height: auto;
-  margin-top: 5px;
-}
-
-/* USUARIO */
-.user-name {
-  position: relative;
-  font-size: 14px;
-  color: #333;
-  font-weight: 600;
-  margin-left: 10px;
-}
-
-/* MENÚ HAMBURGUESA */
-.menu-toggle {
-  position: absolute;
-  right: 20px;
-  top:50%;
-  transform: translateY(-50%);
-  font-size: 28px;
-  cursor: pointer;
-  z-index: 12;
-}
-
-/* MENÚ DESPLEGABLE SUPERIOR */
+/* Asegura que el dropdown no flote fijo, sino relativo al header */
 .dropdown-menu {
   display: none;
   flex-direction: column;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-  padding: 20px;
-  width: 100%;
-  position: absolute;
-  top: 100px;
-  left: 0;
-  z-index: 1;
-}
-
-.dropdown-menu input[type="text"] {
+  background-color: #ffffff;
   padding: 10px;
-  width: 80%;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.menu-item {
-  background: #eee;
-  padding: 10px 20px;
-  margin: 5px 0;
-  width: 80%;
-  border: none;
-  border-radius: 5px;
-  text-align: center;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.menu-item:hover {
-  background: #ddd;
-}
-
-.menu-item.highlighted {
-  background-color: #e63946;
-  color: white;
-  font-weight: bold;
-}
-
-/* BIENVENIDO */
-.welcome-container {
-  background-color: #fff;
-  margin: 0;
-  padding: 1rem;
-  text-align: center;
-  font-size: 1.2rem;
-  font-weight: 500;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid #ddd;
-  z-index: 9;
+  border-bottom: 1px solid #ccc;
   position: relative;
+  z-index: 2;
 }
 
-.logout-container {
-  position: absolute;
-  right: 90px; /* ajusta según el espacio */
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 12;
-}
-
-.logout-button {
-  background-color: #e11d48;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 0.9rem;
-  transition: background-color 0.3s ease;
-}
-
-.logout-button:hover {
-  background-color: #b91c1c;
-}
-
-/* CONTENIDO PRINCIPAL */
-.main-content {
-  margin-top: 0;
-  padding: 1rem;
+/* Corrige separación entre encabezado y menú o contenido */
+.top-bar {
+  background-color: #ffffff;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  position: relative;
 }
