@@ -8,29 +8,48 @@ const users = {
   "Fernanda": { role: "admin", password: "FE0001", nombre: "Fernanda", genero: "F" }
 };
 
-// Lógica de login básica (puedes ajustar según necesidad)
+// Mostrar pantalla correcta al cargar
 document.addEventListener("DOMContentLoaded", function () {
-  const usuarioNombre = localStorage.getItem("usuarioNombre");
+  const nombre = localStorage.getItem("usuarioNombre");
+  const genero = localStorage.getItem("usuarioGenero");
 
-  const loginScreen = document.getElementById("login-screen");
-  const mainScreen = document.getElementById("main-screen");
+  if (nombre && genero) {
+    document.getElementById("login-screen").style.display = "none";
+    document.getElementById("main-screen").style.display = "block";
 
-  if (usuarioNombre) {
-    // Mostrar la pantalla principal
-    loginScreen.style.display = "none";
-    mainScreen.style.display = "block";
-
-    // Mostrar mensaje de bienvenida
-    const genero = localStorage.getItem("usuarioGenero") || "M";
-    const saludo = usuarioGenero === "F" ? "Bienvenida" : "Bienvenido";
-    document.getElementById("mensaje-bienvenida").textContent = `${saludo}, Ing. ${usuarioNombre}`;
+    const saludo = genero === "F" ? "Bienvenida" : "Bienvenido";
+    document.getElementById("mensaje-bienvenida").textContent = `${saludo}, Ing. ${nombre}`;
   } else {
-    // Mostrar login y ocultar pantalla principal
-    loginScreen.style.display = "block";
-    mainScreen.style.display = "none";
+    document.getElementById("login-screen").style.display = "block";
+    document.getElementById("main-screen").style.display = "none";
   }
 });
 
+// Manejo del login
+document.getElementById("login-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const username = document.getElementById("username").value.trim();
+  const password = document.getElementById("password").value;
+
+  const user = users[username];
+
+  if (user && user.password === password) {
+    localStorage.setItem("usuarioNombre", user.nombre);
+    localStorage.setItem("usuarioGenero", user.genero);
+    localStorage.setItem("usuarioRol", user.role);
+    localStorage.setItem("usuarioUsuario", username);
+
+    location.reload(); // Recargar para que se muestre la pantalla principal
+  } else {
+    document.getElementById("login-error").textContent = "Nombre o clave inválidos.";
+  }
+});
+
+// Cierre de sesión
+function cerrarSesion() {
+  localStorage.clear();
+  location.reload(); // Regresar al login
+}
 
 // Toggle del menú desplegable
 function toggleMenu() {
@@ -39,7 +58,7 @@ function toggleMenu() {
 }
 
 // Ocultar menú al hacer clic fuera
-document.addEventListener("click", function(e) {
+document.addEventListener("click", function (e) {
   const menu = document.getElementById("dropdown-menu");
   const toggle = document.querySelector(".menu-toggle");
   if (!menu.contains(e.target) && !toggle.contains(e.target)) {
