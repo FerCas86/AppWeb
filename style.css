@@ -97,26 +97,31 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
-  z-index: 5;
+  overflow: visible;
+  z-index: 2;
 }
 
 /* CÍRCULO ROJO COLGANDO */
 .logo-circle {
   background-color: #c60000;
-  border-radius: 0 0 170px 70px; /* semicírculo hacia abajo */
-  height: 70px;
-  width: 140px;
+  border-radius: 0 0 60px 60px; /* semicírculo hacia abajo */
+  height: 60px;
+  width: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  position: absolute;
+  top: 100%; /* para colgarlo desde abajo del top-bar */
+  left: 50%;
+  transform: translateX(-50%);
   overflow: hidden; /* Solo aquí se mantiene oculto lo que se salga del círculo */
+  z-index: 3;
 }
 
 .logo-circle img {
-  width: 80px;
+  width: 70px;
   height: auto;
-  margin-top: -10px;
+  margin-top: 5px;
 }
 
 /* USUARIO */
@@ -133,7 +138,7 @@ body {
 
 .user-name {
   position: absolute;
-  top: 55px;
+  top: 35px;
   right: 20px;
   font-size: 14px;
   color: #333;
