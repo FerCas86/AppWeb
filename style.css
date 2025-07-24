@@ -131,7 +131,7 @@ body {
   align-items: left;
 }
 
-.user-name {
+.user-name-header{
   position: absolute;
   right: 20px;
   top: 65px; /* Ajusta si se superpone con el header */
