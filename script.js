@@ -8,37 +8,55 @@ const users = {
   "Fernanda": { role: "admin", password: "FE0001", nombre: "Fernanda", genero: "F" }
 };
 
-// Lógica de login básica (puedes ajustar según necesidad)
 document.addEventListener("DOMContentLoaded", function () {
   const usuarioNombre = localStorage.getItem("usuarioNombre");
+  const genero = localStorage.getItem("usuarioGenero") || "M";
 
   const loginScreen = document.getElementById("login-screen");
   const mainScreen = document.getElementById("main-screen");
 
   if (usuarioNombre) {
-    // Mostrar la pantalla principal
     loginScreen.style.display = "none";
     mainScreen.style.display = "block";
 
-    // Mostrar mensaje de bienvenida
-    const genero = localStorage.getItem("usuarioGenero") || "M";
-    const saludo = usuarioGenero === "F" ? "Bienvenida" : "Bienvenido";
-    document.getElementById("mensaje-bienvenida").textContent = ${saludo}, Ing. ${usuarioNombre};
+    const saludo = genero === "F" ? "Bienvenida" : "Bienvenido";
+    document.getElementById("mensaje-bienvenida").textContent = `${saludo}, Ing. ${usuarioNombre}`;
   } else {
-    // Mostrar login y ocultar pantalla principal
     loginScreen.style.display = "block";
     mainScreen.style.display = "none";
   }
+
+  // LOGIN
+  const loginForm = document.getElementById("login-form");
+  loginForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    const errorMsg = document.getElementById("login-error");
+
+    if (users[username] && users[username].password === password) {
+      localStorage.setItem("usuarioNombre", users[username].nombre);
+      localStorage.setItem("usuarioGenero", users[username].genero);
+      errorMsg.textContent = "";
+      location.reload();
+    } else {
+      errorMsg.textContent = "Usuario o clave incorrectos.";
+    }
+  });
 });
 
+// CERRAR SESIÓN
+function cerrarSesion() {
+  localStorage.clear();
+  location.reload();
+}
 
-// Toggle del menú desplegable
+// MENÚ
 function toggleMenu() {
   const menu = document.getElementById("dropdown-menu");
   menu.style.display = menu.style.display === "flex" ? "none" : "flex";
 }
 
-// Ocultar menú al hacer clic fuera
 document.addEventListener("click", function(e) {
   const menu = document.getElementById("dropdown-menu");
   const toggle = document.querySelector(".menu-toggle");
@@ -47,7 +65,7 @@ document.addEventListener("click", function(e) {
   }
 });
 
-// Filtro de búsqueda en el menú
+// FILTRO
 function filtrarMenu() {
   const input = document.getElementById("menu-search").value.toLowerCase();
   const items = document.querySelectorAll(".menu-item");
