@@ -8,49 +8,41 @@ const users = {
   "Fernanda": { role: "admin", password: "FE0001" }
 };
 
-document.getElementById("login-form").addEventListener("submit", function (e) {
+// Lógica de login básica (puedes ajustar según necesidad)
+document.getElementById("login-form").addEventListener("submit", function(e) {
   e.preventDefault();
-  const username = document.getElementById("username").value.trim();
-  const password = document.getElementById("password").value.trim();
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
 
-  if (users[username] && users[username].password === password) {
+  if (username && password) {
     document.getElementById("login-screen").style.display = "none";
     document.getElementById("main-screen").style.display = "block";
     document.getElementById("user-name-header").textContent = username;
-
-    const role = users[username].role;
-    if (role === "admin" || role === "admin2") {
-      const uploadBtn = document.querySelector(".menu-item.highlighted");
-      if (uploadBtn) uploadBtn.style.display = "block";
-    }
   } else {
-    document.getElementById("login-error").textContent = "Clave o usuario incorrecto";
+    document.getElementById("login-error").textContent = "Nombre o clave inválidos.";
   }
 });
 
-// Mostrar/Ocultar menú desplegable
+// Toggle del menú desplegable
 function toggleMenu() {
   const menu = document.getElementById("dropdown-menu");
-  menu.classList.toggle("show");
+  menu.style.display = menu.style.display === "flex" ? "none" : "flex";
 }
 
-// Cerrar menú al hacer clic fuera
-document.addEventListener("click", function (e) {
+// Ocultar menú al hacer clic fuera
+document.addEventListener("click", function(e) {
   const menu = document.getElementById("dropdown-menu");
   const toggle = document.querySelector(".menu-toggle");
-
   if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-    menu.classList.remove("show");
+    menu.style.display = "none";
   }
 });
 
-// Buscar categorías
+// Filtro de búsqueda en el menú
 function filtrarMenu() {
   const input = document.getElementById("menu-search").value.toLowerCase();
   const items = document.querySelectorAll(".menu-item");
-
   items.forEach(item => {
-    const texto = item.textContent.toLowerCase();
-    item.style.display = texto.includes(input) ? "block" : "none";
+    item.style.display = item.textContent.toLowerCase().includes(input) ? "block" : "none";
   });
 }
