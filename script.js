@@ -24,7 +24,7 @@ document.getElementById("login-form").addEventListener("submit", function(e) {
     localStorage.setItem("usuarioUsuario", username);
 
     // Redirigir a la página principal
-    window.location.href = "principal.html";
+    window.location.href = "index.html";
   } else {
     document.getElementById("login-error").textContent = "Nombre o clave inválidos.";
   }
