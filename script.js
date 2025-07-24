@@ -12,6 +12,7 @@ const users = {
 document.getElementById("login-form").addEventListener("submit", function(e) {
   e.preventDefault();
   const username = document.getElementById("username").value;
+  const genero = document.getElementById("genero").value;
   const password = document.getElementById("password").value;
 
   if (username && password) {
@@ -23,7 +24,15 @@ document.getElementById("login-form").addEventListener("submit", function(e) {
   if (userSpan) {
     userSpan.textContent = username;
   }
+
+  // Guardar los datos en localStorage
+  localStorage.setItem("usuarioNombre", nombre);
+  localStorage.setItem("usuarioGenero", genero);
+
+  // Redirigir a la página principal
+  window.location.href = "principal.html"; // Ajusta este nombre si es necesario
 });
+    
     document.getElementById("login-error").textContent = "Nombre o clave inválidos.";
   }
 });
@@ -51,3 +60,13 @@ function filtrarMenu() {
     item.style.display = item.textContent.toLowerCase().includes(input) ? "block" : "none";
   });
 }
+
+// Bienvenido
+document.addEventListener("DOMContentLoaded", function () {
+    const nombre = localStorage.getItem("usuarioNombre") || "Usuario";
+    const genero = localStorage.getItem("usuarioGenero") || "M";
+
+    const saludo = genero === "F" ? "Bienvenida" : "Bienvenido";
+
+    document.getElementById("mensaje-bienvenida").textContent = `${saludo}, Ing. ${nombre}`;
+  });
