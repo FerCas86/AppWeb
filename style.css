@@ -28,7 +28,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-   top: 0; left: 0;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5); /* Filtro oscuro */
@@ -44,7 +44,7 @@ body {
   width: 100%;
   height: 100vh; /* 👈 asegura que ocupe el alto completo de la pantalla */
   position: relative;
-  z-index: 2;
+  z-index: 20;
 }
 
 .login-box {
