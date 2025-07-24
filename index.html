@@ -16,8 +16,8 @@
         <input type="text" id="username" placeholder="Nombre" required />
         <input type="password" id="password" placeholder="Clave de acceso" required />
         <button type="submit">Ingresar</button>
+        <p id="login-error" class="error"></p>
       </form>
-      <p id="login-error" class="error"></p>
     </div>
   </div>
   
@@ -25,48 +25,41 @@
   <div id="main-screen" style="display:none;">
     
     <!-- ENCABEZADO -->
-  <header class="main-header">
-    <div class="top-bar">
-      <div class="logo-container">
-        <div class="logo-circle">
-          <img src="logoOrga.png" alt="Logo" />
+    <header class="main-header">
+      <div class="top-bar">
+        <div class="logo-container">
+          <div class="logo-circle">
+            <img src="logoOrga.png" alt="Logo" />
+          </div>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <div class="logout-container">
+          <button class="logout-button" onclick="cerrarSesion()">Cerrar sesión</button>
         </div>
       </div>
-      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-      <div class="logout-container">
-        <button class="logout-button" onclick="cerrarSesion()">Cerrar sesión</button>
-      </div>
-    </div>
-  </header>
+    </header>
     
     <!-- MENÚ DESPLEGABLE SUPERIOR -->
-  <div id="dropdown-menu" class="dropdown-menu">
-    <input type="text" id="menu-search" placeholder="Buscar..." onkeyup="filtrarMenu()" />
-    <button class="menu-item">Matrices</button>
-    <button class="menu-item">Minutas</button>
-    <button class="menu-item">Tomas de Nota</button>
-    <button class="menu-item">Padrones</button>
-    <button class="menu-item">Directorios</button>
-    <button class="menu-item highlighted">Subir Archivo</button>
-  </div>
+    <div id="dropdown-menu" class="dropdown-menu">
+      <input type="text" id="menu-search" placeholder="Buscar..." onkeyup="filtrarMenu()" />
+      <button class="menu-item">Matrices</button>
+      <button class="menu-item">Minutas</button>
+      <button class="menu-item">Tomas de Nota</button>
+      <button class="menu-item">Padrones</button>
+      <button class="menu-item">Directorios</button>
+      <button class="menu-item highlighted">Subir Archivo</button>
+    </div>
 
-<!-- BIENVENIDO -->
-<!-- CONTENEDOR GENERAL -->
-<div class="main-body">
-  <!-- BIENVENIDA -->
-  <p id="mensaje-bienvenida" class="welcome-container"></p>
-  
-  <script>
-    function cerrarSesion() {
-      localStorage.clear();
-      location.reload(); // recarga index.html y vuelve a mostrar el login
-    }
-  </script>
-    
-    <!-- CONTENIDO PRINCIPAL -->
-    <main class="main-content">
-      <!-- Aquí irán los contenidos de cada categoría -->
-    </main>
+    <!-- CONTENEDOR GENERAL -->
+    <div class="main-body">
+      <!-- BIENVENIDA -->
+      <p id="mensaje-bienvenida" class="welcome-container"></p>
+      
+      <!-- CONTENIDO PRINCIPAL -->
+      <main class="main-content">
+        <!-- Aquí irán los contenidos de cada categoría -->
+      </main>
+    </div>
   </div>
 
   <!-- JS -->
