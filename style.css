@@ -200,7 +200,8 @@ body {
 /* BIENVENIDO */
 .welcome-container {
   background-color: #fff;
-  padding: 20px;
+  margin: 0;
+  padding: 1rem;
   text-align: center;
   font-size: 1.2rem;
   font-weight: 500;
@@ -236,5 +237,6 @@ body {
 
 /* CONTENIDO PRINCIPAL */
 .main-content {
-  padding: 30px;
+  margin-top: 0;
+  padding: 1rem;
 }
