@@ -84,3 +84,25 @@ document.addEventListener("click", function(e) {
     menu.style.display = "none";
   }
 });
+
+ function mostrarFormularioSubida() {
+    const formulario = document.getElementById("formulario-subida");
+    formulario.style.display = "block";
+  }
+
+  // Lógica de subida simulada
+  document.addEventListener("DOMContentLoaded", function () {
+    const uploadForm = document.getElementById("upload-form");
+    if (uploadForm) {
+      uploadForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const archivo = document.getElementById("archivo").files[0];
+        if (archivo) {
+          alert(`Archivo "${archivo.name}" cargado correctamente (simulado).`);
+        } else {
+          alert("Por favor selecciona un archivo.");
+        }
+      });
+    }
+  });
+
