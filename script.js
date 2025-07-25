@@ -106,3 +106,33 @@ document.addEventListener("click", function(e) {
     }
   });
 
+  // Datos simulados - puedes conectar esto con tu backend después
+  const archivosRecientes = [
+    "reporte_enero.pdf",
+    "contrato_clienteA.docx",
+    "cierre_trimestral.xlsx"
+  ];
+  
+  const seccionesUsuario = [
+    "Facturación",
+    "Proyectos",
+    "Recursos Humanos"
+  ];
+  
+  document.addEventListener("DOMContentLoaded", () => {
+    // ... Tu lógica actual de login y bienvenida
+  
+    const listaArchivos = document.getElementById("lista-archivos");
+    archivosRecientes.forEach(archivo => {
+      const li = document.createElement("li");
+      li.textContent = archivo;
+      listaArchivos.appendChild(li);
+    });
+  
+    const listaSecciones = document.getElementById("lista-secciones");
+    seccionesUsuario.forEach(seccion => {
+      const li = document.createElement("li");
+      li.textContent = seccion;
+      listaSecciones.appendChild(li);
+    });
+  });
