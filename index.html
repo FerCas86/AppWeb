@@ -50,6 +50,15 @@
       <button class="menu-item highlighted">Subir Archivo</button>
     </div>
 
+    <!-- Formulario para subir archivo -->
+    <div id="formulario-subida" style="display: none; margin-top: 20px;">
+      <form id="upload-form" enctype="multipart/form-data">
+        <label for="archivo">Subir archivo:</label><br>
+        <input type="file" id="archivo" name="archivo" accept=".pdf,.doc,.docx,.xlsx,.xls,.png,.jpg,.jpeg" required><br><br>
+        <button type="submit">Subir</button>
+      </form>
+    </div>
+    
     <!-- CONTENEDOR GENERAL -->
     <div class="main-body">
       <!-- BIENVENIDA -->
