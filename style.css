@@ -244,3 +244,30 @@ body {
   margin-top: 0;
   padding: 1rem;
 }
+
+.bloque-info {
+  background-color: #ffffffcc;
+  margin: 20px auto;
+  padding: 15px 20px;
+  width: 90%;
+  max-width: 800px;
+  border-radius: 10px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+}
+
+.bloque-info h3 {
+  margin-top: 0;
+  color: #333;
+  font-weight: bold;
+}
+
+.bloque-info ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.bloque-info ul li {
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 15px;
+}
