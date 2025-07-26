@@ -94,28 +94,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // Listener para formulario subida
-  const uploadForm = document.getElementById("upload-form");
-  if (uploadForm) {
-    uploadForm.addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      const categoria = document.getElementById("categoria").value.trim();
-      const nombreArchivo = document.getElementById("nombre-archivo").value.trim();
-      const archivo = document.getElementById("archivo").files[0];
-
-      if (!categoria || !nombreArchivo || !archivo) {
-        alert("Por favor completa todos los campos.");
-        return;
-      }
-
-      alert(`Archivo "${nombreArchivo}" en categoría "${categoria}" cargado correctamente (simulado).`);
-
-      cerrarModal();
-      uploadForm.reset();
-    });
-  }
-
   // Cerrar modal si se da click fuera del contenido
   window.onclick = function(event) {
     const modal = document.getElementById("modal-subida");
@@ -124,3 +102,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 });
+
+// --- Formulario de subida de archivos ---
+const formulario = document.getElementById('formularioSubida');
+if (formulario) {
+  formulario.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Aquí podrías integrar EmailJS, FormSubmit o similar
+    alert("Formulario enviado correctamente (esto es una simulación)");
+
+    // Redirigir a página de agradecimiento si existe
+    window.location.href = "gracias.html";
+  });
+}
