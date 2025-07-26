@@ -1,5 +1,27 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Manejo login y bienvenida
+
+  const loginBtn = document.getElementById("login-btn");
+  if (loginBtn) {
+    loginBtn.addEventListener("click", () => {
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+  
+      if (username && password) {
+        // Puedes agregar validación real aquí si quieres
+        localStorage.setItem("usuarioNombre", username);
+        localStorage.setItem("usuarioGenero", "M"); // o puedes pedirlo en el login más adelante
+  
+        document.getElementById("login-screen").style.display = "none";
+        document.getElementById("main-screen").style.display = "block";
+  
+        document.getElementById("mensaje-bienvenida").textContent = `Bienvenido, Ing. ${username}`;
+      } else {
+        document.getElementById("login-error").style.display = "block";
+      }
+    });
+  }
+  
   const usuarioNombre = localStorage.getItem("usuarioNombre");
   if (usuarioNombre) {
     document.getElementById("login-screen").style.display = "none";
