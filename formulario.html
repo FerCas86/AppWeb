@@ -4,148 +4,37 @@
   <meta charset="UTF-8">
   <title>Subir archivo</title>
   <link rel="stylesheet" href="estilos.css">
-  <style>
-    body {
-      font-family: "Segoe UI", sans-serif;
-      background-color: #f5f5f5;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background-color: #007bff;
-      color: white;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 24px;
-    }
-
-    nav {
-      display: flex;
-      gap: 15px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 16px;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    main {
-      display: flex;
-      justify-content: center;
-      padding: 40px 20px;
-    }
-
-    .formulario {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      padding: 40px;
-      width: 100%;
-      max-width: 600px;
-    }
-
-    .formulario h2 {
-      margin-bottom: 20px;
-      color: #333;
-      font-size: 24px;
-      text-align: center;
-    }
-
-    .formulario label {
-      display: block;
-      margin-top: 20px;
-      font-weight: 600;
-      color: #444;
-    }
-
-    .formulario input,
-    .formulario textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 6px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 15px;
-    }
-
-    .formulario button,
-    .formulario .boton-regresar {
-      margin-top: 30px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      padding: 12px 24px;
-      font-size: 16px;
-      border-radius: 8px;
-      cursor: pointer;
-      width: 100%;
-    }
-
-    .formulario .boton-regresar {
-      background-color: #6c757d;
-    }
-
-    .formulario button:hover {
-      background-color: #0056b3;
-    }
-
-    .formulario .boton-regresar:hover {
-      background-color: #5a6268;
-    }
-  </style>
 </head>
 <body>
 
-  <header>
-    <h1>Mi Plataforma</h1>
-    <nav>
-      <a href="index.html">Inicio</a>
-      <a href="formulario.html">Subir archivo</a>
-      <!-- Otros enlaces si quieres -->
+  <!-- Encabezado global existente -->
+  <header class="cls-header">
+    <h1 class="cls-logo">Mi Plataforma</h1>
+    <nav class="cls-nav">
+      <a href="index.html" class="cls-link">Inicio</a>
+      <a href="formulario.html" class="cls-link active">Subir archivo</a>
     </nav>
   </header>
 
-  <main>
-    <form class="formulario" id="formularioSubida">
-      <h2>Formulario de Subida</h2>
+  <!-- Contenedor del formulario -->
+  <main class="formulario-container">
+    <form id="formularioSubida" class="formulario-box">
+      <h2 class="formulario-titulo">📤 Subir Archivo</h2>
 
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre" required>
+      <label for="nombre" class="formulario-label">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" class="formulario-input" required>
 
-      <label for="archivo">Archivo:</label>
-      <input type="file" id="archivo" name="archivo" required>
+      <label for="archivo" class="formulario-label">Archivo:</label>
+      <input type="file" id="archivo" name="archivo" class="formulario-input" required>
 
-      <label for="comentarios">Comentarios (opcional):</label>
-      <textarea id="comentarios" name="comentarios" rows="4"></textarea>
+      <label for="comentarios" class="formulario-label">Comentarios (opcional):</label>
+      <textarea id="comentarios" name="comentarios" rows="4" class="formulario-textarea"></textarea>
 
-      <button type="submit">📤 Subir archivo</button>
-      <button type="button" class="boton-regresar" onclick="window.location.href='index.html'">⬅️ Regresar al inicio</button>
+      <button type="submit" class="cls-boton cls-boton-azul">📤 Subir</button>
+      <button type="button" class="cls-boton cls-boton-gris" onclick="window.location.href='index.html'">⬅️ Regresar</button>
     </form>
   </main>
 
-  <script>
-    document.getElementById('formularioSubida').addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      // Aquí se puede integrar lógica de envío real (correo, backend, etc.)
-      alert("Formulario enviado (simulación)");
-
-      // Redirección opcional a una página de agradecimiento
-      window.location.href = "gracias.html";
-    });
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>
