@@ -103,16 +103,15 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 });
 
-// --- Formulario de subida de archivos ---
-const formulario = document.getElementById('formularioSubida');
-if (formulario) {
-  formulario.addEventListener('submit', function(e) {
-    e.preventDefault();
+// --- Envío del formulario de subida ---
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("formularioSubida");
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("📨 Formulario enviado (simulado)");
+      window.location.href = "gracias.html"; // o quita esta línea si no tienes esa página
+    });
+  }
+});
 
-    // Aquí podrías integrar EmailJS, FormSubmit o similar
-    alert("Formulario enviado correctamente (esto es una simulación)");
-
-    // Redirigir a página de agradecimiento si existe
-    window.location.href = "gracias.html";
-  });
-}
