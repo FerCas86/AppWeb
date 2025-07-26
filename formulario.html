@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario de Subida</title>
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background-color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: start;
+      padding: 60px 20px;
+    }
+
+    .formulario {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 40px;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .formulario h2 {
+      margin-bottom: 20px;
+      color: #333;
+      font-size: 24px;
+    }
+
+    .formulario label {
+      display: block;
+      margin-top: 20px;
+      font-weight: 600;
+      color: #444;
+    }
+
+    .formulario input,
+    .formulario textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    .formulario button {
+      margin-top: 30px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .formulario button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <form class="formulario" id="formularioSubida">
+    <h2>Sube tu archivo</h2>
+
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required>
+
+    <label for="correo">Correo electrónico:</label>
+    <input type="email" id="correo" name="correo" required>
+
+    <label for="archivo">Archivo:</label>
+    <input type="file" id="archivo" name="archivo" required>
+
+    <label for="comentarios">Comentarios (opcional):</label>
+    <textarea id="comentarios" name="comentarios" rows="4"></textarea>
+
+    <button type="submit">Enviar</button>
+  </form>
+
+  <script>
+    document.getElementById('formularioSubida').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Aquí puedes integrar tu lógica de envío
+      alert("Formulario enviado (simulación)");
+
+      // Redirige a página de gracias (puedes hacer una nueva "gracias.html")
+      window.location.href = "gracias.html";
+    });
+  </script>
+</body>
+</html>
