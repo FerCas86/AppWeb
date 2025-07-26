@@ -343,7 +343,8 @@ body {
   background-color: #1e40af;
 }
 
-/* Formulario de subida*/
+/* --- FORMULARIO DE SUBIDA --- */
+
 .formulario-container {
   display: flex;
   justify-content: center;
@@ -353,7 +354,7 @@ body {
 .formulario-box {
   background: #fff;
   border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   padding: 40px;
   width: 100%;
   max-width: 600px;
@@ -381,5 +382,10 @@ body {
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 15px;
-  box-sizing: border-box;
+}
+
+.formulario-botones {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
 }
