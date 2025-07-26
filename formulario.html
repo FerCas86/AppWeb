@@ -7,31 +7,33 @@
 </head>
 <body>
 
-  <!-- Encabezado global existente -->
+  <!-- Encabezado con menú -->
   <header class="cls-header">
     <h1 class="cls-logo">Mi Plataforma</h1>
     <nav class="cls-nav">
-      <a href="index.html" class="cls-link">Inicio</a>
-      <a href="formulario.html" class="cls-link active">Subir archivo</a>
+      <a href="index.html" class="cls-link">🏠 Inicio</a>
+      <a href="formulario.html" class="cls-link active">📤 Subir archivo</a>
     </nav>
   </header>
 
-  <!-- Contenedor del formulario -->
+  <!-- Contenido principal -->
   <main class="formulario-container">
     <form id="formularioSubida" class="formulario-box">
       <h2 class="formulario-titulo">📤 Subir Archivo</h2>
 
-      <label for="nombre" class="formulario-label">Nombre:</label>
-      <input type="text" id="nombre" name="nombre" class="formulario-input" required>
+      <label class="formulario-label" for="nombre">Nombre:</label>
+      <input class="formulario-input" type="text" id="nombre" name="nombre" required>
 
-      <label for="archivo" class="formulario-label">Archivo:</label>
-      <input type="file" id="archivo" name="archivo" class="formulario-input" required>
+      <label class="formulario-label" for="archivo">Selecciona un archivo:</label>
+      <input class="formulario-input" type="file" id="archivo" name="archivo" required>
 
-      <label for="comentarios" class="formulario-label">Comentarios (opcional):</label>
-      <textarea id="comentarios" name="comentarios" rows="4" class="formulario-textarea"></textarea>
+      <label class="formulario-label" for="comentarios">Comentarios (opcional):</label>
+      <textarea class="formulario-textarea" id="comentarios" name="comentarios" rows="4"></textarea>
 
-      <button type="submit" class="cls-boton cls-boton-azul">📤 Subir</button>
-      <button type="button" class="cls-boton cls-boton-gris" onclick="window.location.href='index.html'">⬅️ Regresar</button>
+      <div class="formulario-botones">
+        <button type="submit" class="cls-boton cls-boton-azul">📤 Subir</button>
+        <button type="button" class="cls-boton cls-boton-gris" onclick="window.location.href='index.html'">⬅️ Regresar</button>
+      </div>
     </form>
   </main>
 
