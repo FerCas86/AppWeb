@@ -21,6 +21,18 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  // Función para cerrar sesión
+  window.cerrarSesion = function () {
+    localStorage.clear();
+    location.reload(); // Recarga la página para regresar al login
+  };
+
+  // Función para abrir/cerrar el menú desplegable
+  window.toggleMenu = function () {
+    const menu = document.getElementById("dropdown-menu");
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+  };
   
   const usuarioNombre = localStorage.getItem("usuarioNombre");
   if (usuarioNombre) {
