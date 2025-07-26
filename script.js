@@ -75,6 +75,13 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.style.display = "none";
   };
 
+  window.onclick = function(event) {
+    const modal = document.getElementById("modal-subida");
+    if (event.target === modal) {
+      cerrarModal();
+    }
+  };
+
   // Listener para formulario subida
   const uploadForm = document.getElementById("upload-form");
   if (uploadForm) {
