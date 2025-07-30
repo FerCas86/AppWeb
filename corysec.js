@@ -32,11 +32,17 @@ const datosCoordinaciones = {
   }
 };
 
-// Función que se ejecuta automáticamente al cargar
 document.addEventListener("DOMContentLoaded", () => {
   const usuario = localStorage.getItem("usuarioNombre") || "admin";
   const contenedor = document.getElementById("contenedor-corysec");
 
+  // Validamos si el contenedor existe
+  if (!contenedor) {
+    console.warn("No se encontró el contenedor con ID 'contenedor-corysec'");
+    return;
+  }
+
+  // Recorremos todas las coordinaciones
   for (const [coordinacion, info] of Object.entries(datosCoordinaciones)) {
     if (!info.usuarios.includes(usuario)) continue;
 
