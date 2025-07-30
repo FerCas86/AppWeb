@@ -45,11 +45,28 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Archivos recientes
-  const archivosRecientes = [
-    "reporte_enero.pdf",
-    "contrato_clienteA.docx",
-    "cierre_trimestral.xlsx"
-  ];
+  const archivosRecientes = JSON.parse(localStorage.getItem("archivosRecientes")) || [];
+
+  const listaArchivos = document.getElementById("lista-archivos");
+  if (listaArchivos) {
+    listaArchivos.innerHTML = ""; // Limpiar lista
+  
+    archivosRecientes.forEach(nombre => {
+      const li = document.createElement("li");
+      li.classList.add("archivo-item");
+  
+      // Detectar tipo por extensión
+      let icono = "📄";
+      if (nombre.endsWith(".pdf")) icono = "📕";
+      else if (nombre.endsWith(".doc") || nombre.endsWith(".docx")) icono = "📝";
+      else if (nombre.endsWith(".xls") || nombre.endsWith(".xlsx")) icono = "📊";
+  
+      li.innerHTML = `${icono} <a href="#" onclick="verArchivo('${nombre}')">${nombre}</a>`;
+      listaArchivos.appendChild(li);
+    });
+  }
+  
+
 
   const listaArchivos = document.getElementById("lista-archivos");
   if (listaArchivos) {
@@ -109,9 +126,28 @@ document.addEventListener("DOMContentLoaded", () => {
   if (form) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      alert("📨 Formulario enviado (simulado)");
-      window.location.href = "gracias.html"; // o quita esta línea si no tienes esa página
+    
+      const archivoInput = document.getElementById("archivo");
+      const archivo = archivoInput.files[0];
+    
+      if (archivo) {
+        let archivos = JSON.parse(localStorage.getItem("archivosRecientes")) || [];
+    
+        archivos.unshift(archivo.name); // Añade al principio
+        archivos = archivos.slice(0, 10); // Máximo 10 archivos
+        localStorage.setItem("archivosRecientes", JSON.stringify(archivos));
+    
+        alert("📨 Archivo subido correctamente.");
+        window.location.href = "index.html";
+      } else {
+        alert("⚠️ Por favor selecciona un archivo.");
+      }
+    });
+
     });
   }
 });
 
+window.verArchivo = function(nombreArchivo) {
+  alert(`🔍 Vista previa de: ${nombreArchivo}\n(Simulación: aquí se abriría el archivo en Word Online, Excel o PDF Viewer según el tipo)`);
+};
