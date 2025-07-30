@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Coordinaciones y Secciones</title>
+  <style>
+    ul { list-style-type: none; padding-left: 1em; }
+    li { margin: 4px 0; cursor: pointer; }
+    li span, li strong { display: inline-block; padding: 4px; }
+    li span:hover, li strong:hover { background-color: #f0f0f0; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <div class="menu-coordinaciones">
+    <h3 onclick="toggleMenuCoordinaciones()">📂 Tus coordinaciones y secciones</h3>
+    <ul id="lista-coordinaciones" style="display: none;"></ul>
+  </div>
+
+  <script src="corysec.js"></script>
+</body>
+</html>
