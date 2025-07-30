@@ -120,30 +120,30 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 });
 
-// --- Envío del formulario de subida ---
+// SUBIDA SIMULADA DE ARCHIVO (DEMO)
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("formularioSubida");
+
   if (form) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-    
+
       const archivoInput = document.getElementById("archivo");
       const archivo = archivoInput.files[0];
-    
-      if (archivo) {
-        let archivos = JSON.parse(localStorage.getItem("archivosRecientes")) || [];
-    
-        archivos.unshift(archivo.name); // Añade al principio
-        archivos = archivos.slice(0, 10); // Máximo 10 archivos
-        localStorage.setItem("archivosRecientes", JSON.stringify(archivos));
-    
-        alert("📨 Archivo subido correctamente.");
-        window.location.href = "index.html";
-      } else {
-        alert("⚠️ Por favor selecciona un archivo.");
-      }
-    });
 
+      if (!archivo) {
+        alert("Por favor selecciona un archivo.");
+        return;
+      }
+
+      // Guardamos el nombre del archivo en localStorage
+      let archivos = JSON.parse(localStorage.getItem("archivosRecientes")) || [];
+      archivos.unshift(archivo.name); // Añadir al principio
+      archivos = archivos.slice(0, 10); // Solo los 10 más recientes
+      localStorage.setItem("archivosRecientes", JSON.stringify(archivos));
+
+      alert("Archivo simulado subido. Redirigiendo al inicio...");
+      window.location.href = "index.html";
     });
   }
 });
