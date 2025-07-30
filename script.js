@@ -65,17 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
       listaArchivos.appendChild(li);
     });
   }
-  
-
-
-  const listaArchivos = document.getElementById("lista-archivos");
-  if (listaArchivos) {
-    archivosRecientes.forEach(archivo => {
-      const li = document.createElement("li");
-      li.textContent = archivo;
-      listaArchivos.appendChild(li);
-    });
-  }
 
   // Secciones usuario
   const seccionesUsuario = [
@@ -149,5 +138,25 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 window.verArchivo = function(nombreArchivo) {
-  alert(`🔍 Vista previa de: ${nombreArchivo}\n(Simulación: aquí se abriría el archivo en Word Online, Excel o PDF Viewer según el tipo)`);
+  const extension = nombreArchivo.split('.').pop().toLowerCase();
+  let icono = '';
+  let appURL = '#'; // Simulación
+
+  switch (extension) {
+    case 'pdf':
+      icono = '📕';
+      break;
+    case 'doc':
+    case 'docx':
+      icono = '📝';
+      break;
+    case 'xls':
+    case 'xlsx':
+      icono = '📊';
+      break;
+    default:
+      icono = '📄';
+  }
+
+  alert(`🔍 Simulación: abriría "${nombreArchivo}" en su visor correspondiente (${icono})`);
 };
