@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("archivosRecientes", JSON.stringify(archivos));
 
       alert("Archivo simulado subido. Redirigiendo al inicio...");
-      window.location.href = "index.html";
+      window.location.reload();
     });
   }
 });
