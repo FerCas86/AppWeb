@@ -55,5 +55,21 @@
   </div>
 
   <script src="script.js"></script>
+  <script>
+  // Mostrar saludo en formulario.html y verificar sesión
+  document.addEventListener("DOMContentLoaded", () => {
+    const usuarioNombre = localStorage.getItem("usuarioNombre");
+    const mensaje = document.getElementById("mensaje-bienvenida");
+
+    if (usuarioNombre && mensaje) {
+      const genero = localStorage.getItem("usuarioGenero") || "M";
+      const saludo = genero === "F" ? "Bienvenida" : "Bienvenido";
+      mensaje.textContent = `${saludo}, Ing. ${usuarioNombre}`;
+    } else {
+      // Si no hay sesión activa, regresar a login (index.html)
+      window.location.href = "index.html";
+    }
+  });
+</script>
 </body>
 </html>
