@@ -422,3 +422,35 @@ body {
 .archivo-item a:hover {
   text-decoration: underline;
 }
+
+/* Coordinaciones y secciones */
+.corysec-box {
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 800px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.coordinacion h3 {
+  color: #1a3c6d;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
+  margin-top: 20px;
+}
+
+.seccion h4 {
+  margin: 10px 0 5px 20px;
+  color: #2c5773;
+}
+
+.seccion ul {
+  margin-left: 40px;
+  list-style: none;
+  padding-left: 0;
+}
+
+.seccion li {
+  margin: 3px 0;
+}
