@@ -1,89 +1,65 @@
-const datosUsuario = {
-  coordinaciones: {
-    "01 Baja California": {
-      secciones: {
-        "05 Mexicali": {
-          titulares: {
-            "Secretario General": "Luis Hernández",
-            "Secretario de Trabajo": "Ana López",
-            "Secretario de Organización": "Carlos Ruiz"
-          }
-        },
-        "07 Tijuana": {
-          titulares: {
-            "Secretario General": "Marta Gómez",
-            "Secretario de Trabajo": "Julio Rivera",
-            "Secretario de Organización": "Paola Márquez"
-          }
-        },
-        "09 Ensenada": {
-          titulares: {
-            "Secretario General": "Fernando Ramírez",
-            "Secretario de Trabajo": "Luisa Ortega",
-            "Secretario de Organización": "Iván Jiménez"
-          }
-        }
+// Estructura de coordinaciones, secciones y titulares
+const datosCoordinaciones = {
+  "01 Baja California": {
+    secciones: {
+      "05 Mexicali": {
+        "Secretario General": "Juan Pérez",
+        "Trabajo": "Ana Gómez",
+        "Organización": "Luis Ramírez"
+      },
+      "07 Tijuana": {
+        "Secretario General": "Carlos Ruiz",
+        "Trabajo": "Laura Méndez",
+        "Organización": "Pedro Torres"
+      },
+      "09 Ensenada": {
+        "Secretario General": "María López",
+        "Trabajo": "José Hernández",
+        "Organización": "Carmen Ríos"
       }
     },
-    "02 Baja California Sur": {
-      secciones: {
-        "10 La Paz": {
-          titulares: {
-            "Secretario General": "Valeria Robles",
-            "Secretario de Trabajo": "Eduardo Méndez",
-            "Secretario de Organización": "Diana Paredes"
-          }
-        }
+    usuarios: ["usuario01", "admin"]
+  },
+  "02 Baja California Sur": {
+    secciones: {
+      "12 La Paz": {
+        "Secretario General": "Andrés Martínez",
+        "Trabajo": "Luz Herrera",
+        "Organización": "Victor Peña"
       }
-    }
+    },
+    usuarios: ["usuario02", "admin"]
   }
 };
 
-function toggleMenuCoordinaciones() {
-  const lista = document.getElementById("lista-coordinaciones");
-  lista.style.display = lista.style.display === "none" ? "block" : "none";
+// Función que se ejecuta automáticamente al cargar
+document.addEventListener("DOMContentLoaded", () => {
+  const usuario = localStorage.getItem("usuarioNombre") || "admin";
+  const contenedor = document.getElementById("contenedor-corysec");
 
-  if (!lista.hasChildNodes()) {
-    Object.entries(datosUsuario.coordinaciones).forEach(([nombreCoord, dataCoord]) => {
-      const liCoord = document.createElement("li");
-      liCoord.innerHTML = `<strong onclick="toggleSecciones(this)">${nombreCoord} ⏷</strong>`;
+  for (const [coordinacion, info] of Object.entries(datosCoordinaciones)) {
+    if (!info.usuarios.includes(usuario)) continue;
 
-      const ulSecciones = document.createElement("ul");
-      ulSecciones.style.display = "none";
+    const coordDiv = document.createElement("div");
+    coordDiv.className = "coordinacion";
+    coordDiv.innerHTML = `<h3>${coordinacion}</h3>`;
 
-      Object.entries(dataCoord.secciones).forEach(([nombreSeccion, datosSeccion]) => {
-        const liSeccion = document.createElement("li");
-        liSeccion.innerHTML = `<span onclick="mostrarTitulares(this)">${nombreSeccion} 📁</span>`;
+    for (const [seccion, titulares] of Object.entries(info.secciones)) {
+      const secDiv = document.createElement("div");
+      secDiv.className = "seccion";
+      secDiv.innerHTML = `<h4>📍 ${seccion}</h4>`;
 
-        const ulTitulares = document.createElement("ul");
-        ulTitulares.style.display = "none";
+      const lista = document.createElement("ul");
+      for (const [cargo, nombre] of Object.entries(titulares)) {
+        const item = document.createElement("li");
+        item.textContent = `${cargo}: ${nombre}`;
+        lista.appendChild(item);
+      }
 
-        Object.entries(datosSeccion.titulares).forEach(([cargo, nombre]) => {
-          const liTitular = document.createElement("li");
-          liTitular.textContent = `${cargo}: ${nombre}`;
-          ulTitulares.appendChild(liTitular);
-        });
+      secDiv.appendChild(lista);
+      coordDiv.appendChild(secDiv);
+    }
 
-        liSeccion.appendChild(ulTitulares);
-        ulSecciones.appendChild(liSeccion);
-      });
-
-      liCoord.appendChild(ulSecciones);
-      lista.appendChild(liCoord);
-    });
+    contenedor.appendChild(coordDiv);
   }
-}
-
-function toggleSecciones(element) {
-  const subLista = element.nextElementSibling;
-  if (subLista) {
-    subLista.style.display = subLista.style.display === "none" ? "block" : "none";
-  }
-}
-
-function mostrarTitulares(element) {
-  const subLista = element.nextElementSibling;
-  if (subLista) {
-    subLista.style.display = subLista.style.display === "none" ? "block" : "none";
-  }
-}
+});
