@@ -7,6 +7,33 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header class="main-header">
+    <div class="top-bar">
+      <div class="logo-container">
+        <div class="logo-circle">
+          <img src="logoOrga.png" alt="Logo">
+        </div>
+      </div>
+      
+      <div class="user-name" id="mensaje-bienvenida">
+        <!-- Aquí irá el saludo dinámico con JS -->
+      </div>
+  
+      <div class="logout-container">
+        <button class="logout-button" onclick="cerrarSesion()">Cerrar sesión</button>
+      </div>
+  
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </div>
+  
+    <div class="dropdown-menu" id="dropdown-menu">
+      <input type="text" placeholder="Buscar...">
+      <button class="menu-item">Facturación</button>
+      <button class="menu-item">Proyectos</button>
+      <button class="menu-item">Recursos Humanos</button>
+      <button class="menu-item highlighted" onclick="cerrarSesion()">Cerrar sesión</button>
+    </div>
+  </header>
   <div id="main-screen">
     <form id="formularioSubida" class="formulario-subida">
       <h2 class="formulario-titulo">Subir Archivo</h2>
